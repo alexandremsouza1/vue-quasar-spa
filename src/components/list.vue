@@ -1,9 +1,9 @@
 <template>
   <div style="width: 500px;max-width: 90vw;">
     <q-list inset-separator class="q-mt-md">
-      <q-item>
+      <q-item v-for="(item, index) of getArticles" :key="index">
         <!-- <q-item-side avatar="statics/boy-avatar.png" /> -->
-        <q-item-main label="Brunch this weekend?" />
+        <q-item-main label="item.title" />
         <q-item-side right>
           <q-btn flat round dense icon="more_vert">
             <q-popover>
@@ -48,7 +48,11 @@
 </style>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  name: 'ListView'
+  name: 'ListView',
+  computed: {
+    ...mapGetters['getArticles']
+  }
 }
 </script>
