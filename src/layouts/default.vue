@@ -59,17 +59,17 @@
     <q-page-container>
       <router-view />
     </q-page-container>
-   <q-layout-footer reveal>
-    <q-toolbar
-        color="black"
-        :glossy="$q.theme === 'mat'"
-        :inverted="$q.theme === 'ios'"
-      >
-        <q-toolbar-title>
-          Footer
-        </q-toolbar-title>
-      </q-toolbar>
-  </q-layout-footer>
+    <q-layout-footer reveal>
+      <q-toolbar
+          color="black"
+          :glossy="$q.theme === 'mat'"
+          :inverted="$q.theme === 'ios'"
+        >
+          <q-toolbar-title>
+            Footer
+          </q-toolbar-title>
+        </q-toolbar>
+    </q-layout-footer>
   </q-layout>
 </template>
 

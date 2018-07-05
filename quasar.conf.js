@@ -31,7 +31,7 @@ module.exports = function (ctx) {
     },
     devServer: {
       // https: true,
-      // port: 8080,
+      port: 8081,
       open: true // opens browser window automatically
     },
     // framework: 'all' --- includes everything; for dev only!
@@ -43,6 +43,7 @@ module.exports = function (ctx) {
         'QLayoutDrawer',
         'QPageContainer',
         'QPage',
+        'QPageSticky',
         'QPopover',
         'QToolbar',
         'QToolbarTitle',
@@ -53,11 +54,14 @@ module.exports = function (ctx) {
         'QItem',
         'QItemMain',
         'QItemTile',
-        'QItemSide'
+        'QItemSide',
+        'QDialog',
+        'QInput',
+        'QField'
       ],
       directives: ['Ripple', 'CloseOverlay'],
       // Quasar plugins
-      plugins: ['Notify']
+      plugins: ['Notify', 'Dialog']
       // iconSet: ctx.theme.mat ? 'material-icons' : 'ionicons'
       // i18n: 'de' // Quasar language
     },

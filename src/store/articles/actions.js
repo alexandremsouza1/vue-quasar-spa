@@ -21,3 +21,12 @@ export const addArticle = ({ commit, state }, article) => {
     })
     .catch(err => console.log(err))
 }
+export const deleteArticle = ({ commit, state }, article) => {
+  console.log(article)
+  // api
+  //   .deleteArticle(article)
+  //   .then(req => {
+  //     commit('DELETE_ARTICLE', article)
+  //   })
+  //   .catch(err => console.log(err))
+}
