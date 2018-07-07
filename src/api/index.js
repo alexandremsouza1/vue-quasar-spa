@@ -1,18 +1,26 @@
 import axios from 'axios'
 
-const ENDPOINT = 'https://react-my-burger-34c89.firebaseio.com'
+// const ENDPOINT = 'http://localhost:8080'
+const ENDPOINT = 'http://spring-vue-quasar.herokuapp.com'
 
 export default {
   readArticles () {
-    return axios.get(ENDPOINT + '/articles')
+    return axios.get(ENDPOINT + '/article')
   },
   createArticle (data) {
-    return axios.post(ENDPOINT, data)
+    const changedData = {
+      title: data.title,
+      text: data.text
+    }
+    return axios.post(ENDPOINT + '/article', changedData)
   },
   updateArticle (data) {
-    return axios.post(ENDPOINT, data)
+    return axios.put(ENDPOINT + `/article/${data.id}`, data)
   },
   deleteArticle (data) {
-    return axios.delete(ENDPOINT, data)
+    return axios.delete(ENDPOINT + `/article/${data.id}`)
+  },
+  searchArticles (query) {
+    return axios.get(ENDPOINT + `/article/search?query=${query}`)
   }
 }

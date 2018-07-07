@@ -4,10 +4,8 @@
       prevent-close
       @input="$emit('show', $event)"
     >
-      <span v-if="edit" slot="title">Edit Article</span>
-      <span v-if="!edit" slot="title">Create new Article</span>
-      <span v-if="edit" slot="message">You are realy want to change this article?</span>
-      <span v-if="!edit" slot="message">Please, type data for new article.</span>
+      <span slot="title">{{messages.title}}</span>
+      <span slot="message">{{messages.message}}</span>
       <div slot="body">
         <q-field
           class="q-mb-md"
@@ -53,7 +51,13 @@ export default {
   data () {
     return {
       isShow: this.show,
-      isArticle: this.article
+      isArticle: this.article,
+      messages: {
+        title: this.edit ? 'Edit Article' : 'Create new Article',
+        message: this.edit ? 'You are realy want to change this article?' : 'Please, type data for new article.',
+        positive: (title) => { return this.edit ? `Article "${title}" was changed!` : `Article ${title} created!` },
+        negative: (title) => { return this.edit ? `Can't change "${title}" article!` : `Can't create article ${title}!` }
+      }
     }
   },
   model: {
@@ -79,7 +83,19 @@ export default {
         })
       } else {
         await okFn()
-        this.$q.notify(`Ok ${this.isArticle.title}, going with ${this.isArticle.text}`)
+        this.okHandler(this.isArticle)
+          .then(() => {
+            this.$q.notify({
+              message: this.messages.positive(this.isArticle.title),
+              type: 'positive'
+            })
+          })
+          .catch(() => {
+            this.$q.notify({
+              message: this.messages.negative(this.isArticle.title),
+              type: 'negative'
+            })
+          })
       }
     }
   }
