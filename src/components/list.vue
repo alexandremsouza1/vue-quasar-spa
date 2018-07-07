@@ -14,10 +14,10 @@
             <q-popover>
               <q-list link>
                 <q-item v-close-overlay>
-                  <q-item-main label="Edit" @click.native="editDialogModel(item)"/>
+                  <q-item-main label="לַעֲרוֹך" @click.native="editDialogModel(item)"/>
                 </q-item>
                 <q-item v-close-overlay>
-                  <q-item-main label="Delete" @click.native="confirmHandler(item)"/>
+                  <q-item-main label="לִמְחוֹק" @click.native="confirmHandler(item)"/>
                 </q-item>
               </q-list>
             </q-popover>
@@ -68,28 +68,29 @@ export default {
     },
     confirmHandler (data) {
       this.$q.dialog({
-        title: 'Confirm Delete',
-        message: `You are agree to delete article "${data.title}"?`,
-        ok: 'Agree',
-        cancel: 'Disagree'
+        title: 'אשר את המחיקה',
+        message: `אתה מסכים למחוק את המאמר "${data.title}"?`,
+        ok: 'לְהַסכִּים',
+        cancel: 'לא מסכים',
+        dir: 'rtl'
       })
         .then(() => {
           this.deleteArticle(data)
             .then(() => {
               this.$q.notify({
-                message: `Article ${data.title} was deleted.`,
+                message: `מאמר ${data.title} נמחק.`,
                 type: 'positive'
               })
             })
             .catch(() => {
               this.$q.notify({
-                message: `Can't delete article ${data.title}!`,
+                message: `לא ניתן למחוק את המאמר ${data.title}!`,
                 type: 'negative'
               })
             })
         })
         .catch(() => {
-          this.$q.notify('Disagreed...')
+          this.$q.notify('מחויב ...')
         })
     }
   },

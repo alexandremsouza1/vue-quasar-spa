@@ -1,5 +1,6 @@
 <template>
     <q-dialog
+      dir="rtl"
       :value="showed"
       prevent-close
       @input="$emit('show', $event)"
@@ -13,7 +14,7 @@
           icon-color="amber"
 
         >
-          <q-input v-model="isArticle.title" float-label="Please, enter title"/>
+          <q-input v-model="isArticle.title" float-label="אנא, הזן כותרת"/>
         </q-field>
         <q-field
           icon="wifi"
@@ -22,7 +23,7 @@
         >
           <q-input
             v-model="isArticle.text"
-            float-label="Please, enter text"
+            float-label="בבקשה, הזן טקסט"
             type="textarea"
             :max-height="100"
             rows="2"/>
@@ -31,11 +32,11 @@
       <template slot="buttons" slot-scope="props">
           <q-btn
             flat
-            label="Save"
+            label="שמור"
             @click="isOkHandler(props.ok)"/>
           <q-btn
             flat
-            label="Cancel"
+            label="לְבַטֵל"
             @click="props.cancel" />
       </template>
     </q-dialog>
@@ -53,10 +54,10 @@ export default {
       isShow: this.show,
       isArticle: this.article,
       messages: {
-        title: this.edit ? 'Edit Article' : 'Create new Article',
-        message: this.edit ? 'You are realy want to change this article?' : 'Please, type data for new article.',
-        positive: (title) => { return this.edit ? `Article "${title}" was changed!` : `Article ${title} created!` },
-        negative: (title) => { return this.edit ? `Can't change "${title}" article!` : `Can't create article ${title}!` }
+        title: this.edit ? 'ערוך מאמר' : 'צור מאמר חדש',
+        message: this.edit ? 'אתה באמת רוצה לשנות את המאמר הזה?' : 'אנא, הקלד נתונים עבור מאמר חדש.',
+        positive: (title) => { return this.edit ? `מאמר "${title}" שונה!` : `מאמר ${title} נוצר!` },
+        negative: (title) => { return this.edit ? `לא ניתן לשנות "${title}" מאמר!` : `לא ניתן ליצור מאמר ${title}!` }
       }
     }
   },
@@ -78,8 +79,8 @@ export default {
       if (this.isArticle.title.length === 0 || this.isArticle.text.length === 0) {
         // this.error = true
         this.$q.dialog({
-          title: 'Please fill in all fields!',
-          message: `All field must be filled.`
+          title: 'בבקשה מלא את כל השדות!',
+          message: `יש למלא את כל השדות.`
         })
       } else {
         await okFn()

@@ -1,7 +1,7 @@
 <template>
   <q-page class="row justify-center layout-padding">
     <div class="full-width">
-      <q-chips-input v-model="searchQuery" placeholder="Typing a search query..."/>
+      <q-chips-input v-model="searchQuery" placeholder="הקלדת שאילתת חיפוש..."/>
       <list-view></list-view>
       <create-artilce
         v-model="showCreateDialog"
@@ -12,7 +12,7 @@
 
       </create-artilce>
     </div>
-    <q-page-sticky position="bottom-right" :offset="[18, 18]">
+    <q-page-sticky position="bottom" :offset="[18, 18]">
       <q-btn :disabled=getObtainingData round color="primary" icon="add" @click="newDialogModel"/>
     </q-page-sticky>
   </q-page>

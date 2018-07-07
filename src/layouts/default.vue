@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout dir="rtl" view="lHh Lpr lFf">
     <q-layout-header>
       <q-toolbar
         color="primary"
@@ -32,26 +32,26 @@
         link
         inset-delimiter
       >
-        <q-list-header>Side-Menu</q-list-header>
-        <q-item @click.native="openURL('http://quasar-framework.org')">
+        <q-list-header>תפריט</q-list-header>
+        <q-item @click.native="openURL('http://alexm-quasar-app.herokuapp.com/')">
           <q-item-side icon="school" />
-          <q-item-main label="Mehu item" sublabel="any content placed here" />
+          <q-item-main label="פריט בתפריט" sublabel="כל תוכן שמופיע כאן" />
         </q-item>
-        <q-item @click.native="openURL('https://github.com/quasarframework/')">
+        <q-item @click.native="openURL('http://alexm-quasar-app.herokuapp.com/')">
           <q-item-side icon="code" />
-          <q-item-main label="Mehu item" sublabel="any content placed here" />
+          <q-item-main label="פריט בתפריט" sublabel="כל תוכן שמופיע כאן" />
         </q-item>
-        <q-item @click.native="openURL('https://discord.gg/5TDhbDg')">
+        <q-item @click.native="openURL('http://alexm-quasar-app.herokuapp.com/')">
           <q-item-side icon="chat" />
-          <q-item-main label="Mehu item" sublabel="any content placed here" />
+          <q-item-main label="פריט בתפריט" sublabel="כל תוכן שמופיע כאן" />
         </q-item>
-        <q-item @click.native="openURL('http://forum.quasar-framework.org')">
+        <q-item @click.native="openURL('http://alexm-quasar-app.herokuapp.com/')">
           <q-item-side icon="record_voice_over" />
-          <q-item-main label="Mehu item" sublabel="any content placed here" />
+          <q-item-main label="פריט בתפריט" sublabel="כל תוכן שמופיע כאן" />
         </q-item>
-        <q-item @click.native="openURL('https://twitter.com/quasarframework')">
+        <q-item @click.native="openURL('http://alexm-quasar-app.herokuapp.com/')">
           <q-item-side icon="rss feed" />
-          <q-item-main label="Mehu item" sublabel="any content placed here" />
+          <q-item-main label="פריט בתפריט" sublabel="כל תוכן שמופיע כאן" />
         </q-item>
       </q-list>
     </q-layout-drawer>
