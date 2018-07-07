@@ -30,5 +30,6 @@ export default {
       text:
         'Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum'
     }
-  ]
+  ],
+  obtainingData: false
 }

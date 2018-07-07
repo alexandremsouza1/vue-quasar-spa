@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <q-list inset-separator class="shadow-13 q-mt-md full-width">
+  <div class="row justify-center">
+    <q-spinner v-if="getObtainingData" color="secondary" :size="30" />
+    <q-list v-if="!getObtainingData" inset-separator class="shadow-13 q-mt-md full-width">
       <q-item multiline v-for="(item, index) of getArticles" :key="index">
         <!-- <q-item-side avatar="statics/boy-avatar.png" /> -->
         <q-item-main
@@ -96,7 +97,7 @@ export default {
     this.getAllArticles()
   },
   computed: {
-    ...mapGetters('articles', ['getArticles'])
+    ...mapGetters('articles', ['getArticles', 'getObtainingData'])
   }
 }
 </script>

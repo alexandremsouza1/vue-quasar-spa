@@ -13,3 +13,6 @@ export const UPDATE_ARTICLE = (state, article) => {
 export const DELETE_ARTICLE = (state, article) => {
   state.articles = article
 }
+export const SET_OBTAINING_DATA = (state, data) => {
+  state.obtainingData = data
+}

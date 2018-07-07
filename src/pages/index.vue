@@ -13,7 +13,7 @@
       </create-artilce>
     </div>
     <q-page-sticky position="bottom-right" :offset="[18, 18]">
-      <q-btn round color="primary" icon="alarm" @click="newDialogModel"/>
+      <q-btn :disabled=getObtainingData round color="primary" icon="add" @click="newDialogModel"/>
     </q-page-sticky>
   </q-page>
 </template>
@@ -22,7 +22,7 @@
 </style>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import listView from '../components/list'
 import createArtilce from '../components/createEditDialog'
 
@@ -47,6 +47,9 @@ export default {
     newDialogModel () {
       this.showCreateDialog = true
     }
+  },
+  computed: {
+    ...mapGetters('articles', ['getObtainingData'])
   },
   watch: {
     searchQuery: function (val, oldVal) {

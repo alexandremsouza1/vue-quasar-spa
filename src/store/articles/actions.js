@@ -4,9 +4,11 @@ export const someAction = (state) => {}
 import api from '../../api/index'
 
 export const getAllArticles = async ({ commit, state }) => {
+  commit('SET_OBTAINING_DATA', true)
   await api
     .readArticles()
     .then(res => {
+      commit('SET_OBTAINING_DATA', false)
       commit('SET_ARTICLES', res.data)
     })
     .catch(err => {
@@ -51,9 +53,11 @@ export const deleteArticle = async ({ commit, state, dispatch }, article) => {
     })
 }
 export const searchArticles = async ({ commit, state }, query) => {
+  commit('SET_OBTAINING_DATA', true)
   await api
     .searchArticles(query)
     .then(res => {
+      commit('SET_OBTAINING_DATA', false)
       commit('SET_ARTICLES', res.data)
     })
     .catch(err => {
