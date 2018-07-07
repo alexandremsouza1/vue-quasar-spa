@@ -7,6 +7,9 @@
   "author": "Alex_m <kingkong2008@ukr.net>",
   "private": true,
   "scripts": {
+    "build": "quasar build",
+    "start": "node server.js",
+    "heroku-postbuild": "npm install --only=dev --no-shrinkwrap && npm run build",
     "lint": "eslint --ext .js,.vue src",
     "test": "echo \"No test specified\" && exit 0"
   },
