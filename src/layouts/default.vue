@@ -1,10 +1,11 @@
 <template>
-  <q-layout dir="rtl" view="lHh Lpr lFf">
+  <q-layout view="lHh Lpr lFf">
     <q-layout-header>
       <q-toolbar
         color="primary"
         :glossy="$q.theme === 'mat'"
         :inverted="$q.theme === 'ios'"
+        dir="rtl"
       >
         <q-btn
           flat
@@ -24,10 +25,12 @@
     </q-layout-header>
 
     <q-layout-drawer
+      side="right"
       v-model="leftDrawerOpen"
       :content-class="$q.theme === 'mat' ? 'bg-grey-2' : null"
     >
       <q-list
+        dir="rtl"
         no-border
         link
         inset-delimiter

@@ -1,7 +1,7 @@
 <template>
   <q-page class="row justify-center layout-padding">
     <div class="full-width">
-      <q-chips-input v-model="searchQuery" placeholder="הקלדת שאילתת חיפוש..."/>
+      <q-chips-input dir="rtl" v-model="searchQuery" placeholder="הקלדת שאילתת חיפוש..."/>
       <list-view></list-view>
       <create-artilce
         v-model="showCreateDialog"

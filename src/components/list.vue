@@ -1,5 +1,5 @@
 <template>
-  <div class="row justify-center">
+  <div dir="rtl" class="row justify-center">
     <q-spinner v-if="getObtainingData" color="secondary" :size="30" />
     <q-list v-if="!getObtainingData" inset-separator class="shadow-13 q-mt-md full-width">
       <q-item multiline v-for="(item, index) of getArticles" :key="index">
@@ -71,8 +71,7 @@ export default {
         title: 'אשר את המחיקה',
         message: `אתה מסכים למחוק את המאמר "${data.title}"?`,
         ok: 'לְהַסכִּים',
-        cancel: 'לא מסכים',
-        dir: 'rtl'
+        cancel: 'לא מסכים'
       })
         .then(() => {
           this.deleteArticle(data)
